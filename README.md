@@ -50,7 +50,7 @@ gcc -O3 -Wall -Wextra -o kybernaut_human kybernaut_human.c -lm
 
 # Spustenie jednotlivých modelov
 ./kybernaut_light
-# ./kybernaut_human  # predpokladaný model s učením
+./kybernaut_human  
 
 # Spustenie komparatívnej analýzy
 chmod +x compare_models.sh
@@ -87,6 +87,8 @@ make stats        # zobrazí štatistiky kódu
 
 ### Vstupné parametre
 Pri spustení Kybernaut-Light používateľ zadá rozmer štvorcovej mriežky (typicky 15-1000). Pre veľké rozmery (>1000) systém poskytuje upozornenie na nároky na pamäť a vyžaduje potvrdenie.
+
+Pri spustení Kybernaut-Human používateľ zadá rozmer štvorcovej mriežky (typicky 15-1000). Pre veľké rozmery (>1000) systém poskytuje upozornenie na nároky na pamäť a vyžaduje potvrdenie.
 
 ## Pokročilé testovanie a štatistická analýza
 
