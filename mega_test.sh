@@ -8,7 +8,7 @@ echo "  MEGA TEST: 10× OPakovanie na veľkom svete"
 echo "=============================================="
 
 # Konfigurácia
-WORLD_SIZE=1000          # 1000×1000 = 1 000 000 buniek (veľký svet)
+WORLD_SIZE=1000         # 1000×1000 = 1 000 000 buniek (veľký svet)
 REPETITIONS=10          # 10 opakovaní
 OUTPUT_DIR="mega_test_results"
 LOG_PREFIX="test_run"
