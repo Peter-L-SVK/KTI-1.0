@@ -676,7 +676,13 @@ cat >> $HTML_FILE << EOF
                 <li><strong>Realita je "učiteľná"</strong> - interakcia s ňou generuje exponenciálny rast poznania</li>
                 <li><strong>Entropická efektivita</strong> je merateľná veličina inteligencie</li>
                 <li><strong>Kybernautika</strong> poskytuje kvantitatívny rámec pre štúdium vedomia</li>
-                <li><strong>614% zvýšenie poznania</strong> demonštruje potenciál adaptívneho učenia</li>
+                <li>
+		  <strong>
+		    <div class="metric-value" style="display: inline;">${improvement_Sinfo}%</div>
+    		    zvýšenie poznania
+                   </strong>
+                   demonštruje potenciál adaptívneho učenia
+                 </li>
             </ol>
         </div>
         
