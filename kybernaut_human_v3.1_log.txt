@@ -1,0 +1,20 @@
+KYBERNAUT-HUMAN v3.1 - Fyzikálne korektná verzia
+================================================
+
+Fyzikálne parametre:
+  Rozmer sveta: 1000 x 1000 buniek
+  Veľkosť bunky: 1.0e-06 m
+  Časový krok: 1.0e-12 s
+  Simulačný čas: 0.909 s
+
+Entropické metriky (0-1):
+  S_info: 0.4129
+  S_thermal: 1.0000
+  S_quantum: 0.5022
+  ΔS: 0.5871
+  Pomer: 2.422
+
+Fyzikálne metriky:
+  Celková energia: 9.908e-05 J
+  Priemerná teplota: 290.9 K
+  Pokrytie: 0.3%

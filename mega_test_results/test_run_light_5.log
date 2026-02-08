@@ -1,0 +1,151 @@
+╔══════════════════════════════════════════════════════════════╗
+║          KYBERNAUT-LIGHT v3.1 - OPTICKÁ VERZIA             ║
+║      (Fyzikálne korektná simulácia fotónu)                ║
+║                PODPORA PRE VEĽKÉ MRIEŽKY                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+OPTICKÁ KOREKTNOSŤ:
+  • Snellov zákon a Fresnelove koeficienty
+  • Beer-Lambertov zákon absorpcie
+  • Projekcia 3D optiky do 2D
+  • Interferenčné a fázové efekty
+
+Zadaj rozmer sveta (napr. 15-1000): Inicializujem optický svet 1000x1000 (1000000 buniek)...
+
+Štart: [500,500], Ciele: Domov[0,0] -> Bar[999,999]
+Optické parametre:
+  • Fotón: λ=550.0 nm, E=3.61e-19 J
+  • Rozlíšenie: 1.0 µm/bunka
+  • Časové rozlíšenie: 1.0 fs/krok
+  • Maximálny počet krokov: 20000
+
+
+[KYBERNAUT-LIGHT v3.1] Fyzikálne korektná optická simulácia
+==============================================================
+Optické parametre:
+  • Vlnová dĺžka: 550.0 nm
+  • Bunka: 1.0 µm
+  • Časový krok: 1.0 fs
+  • Energie fotónu: 3.612e-19 J
+  • Rozmer sveta: 1000x1000
+==============================================================
+Dráha   1001µm: [496,464] voda
+         Intenzita: 1.000 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 690
+         Entropia: S_info=0.080, S_therm=1.000, S_quant=0.345
+Dráha   2001µm: [496,464] voda
+         Intenzita: 0.999 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 1396
+         Entropia: S_info=0.066, S_therm=1.000, S_quant=0.698
+Dráha   3001µm: [496,464] voda
+         Intenzita: 0.999 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 2102
+         Entropia: S_info=0.062, S_therm=1.000, S_quant=1.000
+Dráha   4001µm: [496,464] voda
+         Intenzita: 0.999 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 2808
+         Entropia: S_info=0.059, S_therm=1.000, S_quant=1.000
+Dráha   5001µm: [496,464] voda
+         Intenzita: 0.999 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 3514
+         Entropia: S_info=0.057, S_therm=1.000, S_quant=1.000
+Dráha   6001µm: [496,464] voda
+         Intenzita: 0.998 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 4220
+         Entropia: S_info=0.056, S_therm=1.000, S_quant=1.000
+Dráha   7001µm: [496,464] voda
+         Intenzita: 0.998 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 4926
+         Entropia: S_info=0.056, S_therm=1.000, S_quant=1.000
+Dráha   8001µm: [496,464] voda
+         Intenzita: 0.998 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 5632
+         Entropia: S_info=0.055, S_therm=1.000, S_quant=1.000
+Dráha   9001µm: [496,464] voda
+         Intenzita: 0.998 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 6338
+         Entropia: S_info=0.055, S_therm=1.000, S_quant=1.000
+Dráha  10001µm: [496,464] voda
+         Intenzita: 0.997 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 7044
+         Entropia: S_info=0.054, S_therm=1.000, S_quant=1.000
+Dráha  11001µm: [496,464] voda
+         Intenzita: 0.997 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 7750
+         Entropia: S_info=0.054, S_therm=1.000, S_quant=1.000
+Dráha  12001µm: [496,464] voda
+         Intenzita: 0.997 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 8456
+         Entropia: S_info=0.054, S_therm=1.000, S_quant=1.000
+Dráha  13001µm: [496,464] voda
+         Intenzita: 0.997 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 9162
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  14001µm: [496,464] voda
+         Intenzita: 0.996 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 9868
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  15002µm: [496,464] voda
+         Intenzita: 0.996 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 10574
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  16002µm: [496,464] voda
+         Intenzita: 0.996 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 11280
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  17002µm: [496,464] voda
+         Intenzita: 0.996 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 11986
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  18002µm: [496,464] voda
+         Intenzita: 0.995 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 12692
+         Entropia: S_info=0.053, S_therm=1.000, S_quant=1.000
+Dráha  19002µm: [496,464] voda
+         Intenzita: 0.995 | Teplota: 294.7K
+         Odrazy: 0 | Lomy: 13398
+         Entropia: S_info=0.052, S_therm=1.000, S_quant=1.000
+
+══════════════════════════════════════════════════════════════
+              VÝSLEDKY KYBERNAUT-LIGHT v3.1
+══════════════════════════════════════════════════════════════
+
+OPTICKÉ METRIKY:
+  Celková optická dráha: 20000.6 µm
+  Konečná intenzita: 0.995
+  Odrazy/Lomy: 0/14103
+  Koherenčná dĺžka: 1.0 mm
+  Čas simulácie: 0.155 s
+
+ENTROPICKÁ ANALÝZA (normalizované 0-1):
+  Informačná entropia (S_info): 0.0523
+  Tepelná entropia (S_thermal): 1.0000
+  Kvantová entropia (S_quantum): 1.0000
+  Rozdiel S_thermal - S_info: 0.9477
+  Pomer S_thermal/S_info: 19.122
+
+TERMODYNAMICKÉ METRIKY:
+  Absorbovaná energia: 1.601e-21 J
+  Teplotný rozsah: 293.2K - 297.9K
+  Efektivita fotónu: 1.249e+19 m/J
+
+EXPLORAČNÉ METRIKY:
+  Pokrytie sveta: 44/1000000 buniek (0.0%)
+  Priemerná intenzita: 0.000
+
+══════════════════════════════════════════════════════════════
+              MATEMATICKÁ A FYZIKÁLNA VALIDÁCIA
+══════════════════════════════════════════════════════════════
+✓ S_info v rozsahu 0-1: 0.0523
+✓ S_thermal v rozsahu 0-1: 1.0000
+✓ S_quantum v rozsahu 0-1: 1.0000
+✓ Intenzita v rozsahu 0-1: 0.995
+✓ Skupinová rýchlosť ≤ c: 1.999e+08 m/s
+
+✓ Všetky metriky matematicky a fyzikálne korektné
+
+Výsledky uložené do: kybernaut_light_v3.1_log.txt
+
+══════════════════════════════════════════════════════════════
+  OPTICKÁ SIMULÁCIA UKONČENÁ - FYZIKÁLNE VALIDOVANÁ
+══════════════════════════════════════════════════════════════

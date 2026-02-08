@@ -1,0 +1,198 @@
+╔══════════════════════════════════════════════════════════════╗
+║          KYBERNAUT-HUMAN v3.1 - FYZIKÁLNA VERZIA           ║
+║           (Opravená matematika a 3D→2D projekcia)          ║
+║                PODPORA PRE VEĽKÉ MRIEŽKY                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+FYZIKÁLNA KOREKTNOSŤ:
+  • Všetky entropie normalizované na rozsah 0-1
+  • Projekcia 3D fyziky do 2D simulácie
+  • Reálne fyzikálne konštanty a jednotky
+  • Kontrola matematických limitov
+
+Zadaj rozmer sveta (napr. 15-1000): Inicializujem fyzikálny svet 1000x1000 (1000000 buniek)...
+
+Štart: [500,500], Ciele: Domov[0,0] -> Bar[999,999]
+Fyzikálna interpretácia:
+  • 1 bunka = 1.0e-06 m
+  • 1 krok = 1.0e-12 s
+  • Energetická jednotka = 1.0e-20 J
+  • Maximálny počet krokov: 30000
+
+
+[KYBERNAUT-HUMAN v3.1] Fyzikálne korektná simulácia
+=====================================================
+Projekcia 3D→2D:
+  • Bunka: 1.0e-06 m
+  • Časový krok: 1.0e-12 s
+  • Energetická jednotka: 1.0e-20 J
+  • Rozmer sveta: 1000x1000
+=====================================================
+Krok  1000: [524,992] vzduch
+         Teplota: 301.6K | Návštev: 1
+         Energia: 1.2e-05 J | ε: 0.21
+         Entropia: S_info=0.476, S_therm=1.000, S_quant=0.141
+Krok  2000: [606,998] vzduch
+         Teplota: 297.3K | Návštev: 2
+         Energia: 2.3e-05 J | ε: 0.12
+         Entropia: S_info=0.496, S_therm=1.000, S_quant=0.268
+Krok  3000: [712,996] sklo
+         Teplota: 297.6K | Návštev: 2
+         Energia: 3.3e-05 J | ε: 0.07
+         Entropia: S_info=0.515, S_therm=1.000, S_quant=0.330
+Krok  4000: [815,999] voda
+         Teplota: 298.4K | Návštev: 3
+         Energia: 4.4e-05 J | ε: 0.05
+         Entropia: S_info=0.528, S_therm=1.000, S_quant=0.363
+Krok  5000: [897,999] voda
+         Teplota: 298.9K | Návštev: 2
+         Energia: 5.4e-05 J | ε: 0.05
+         Entropia: S_info=0.536, S_therm=1.000, S_quant=0.407
+
+╔══════════════════════════════════════════════════╗
+║   [BAR DOSIAHNUTÝ] v kroku 5722!                  ║
+║   Celková energia: 6.2e-05 J                     ║
+╚══════════════════════════════════════════════════╝
+Krok  6000: [981,993] voda
+         Teplota: 295.0K | Návštev: 3
+         Energia: 6.6e-05 J | ε: 0.12
+         Entropia: S_info=0.551, S_therm=1.000, S_quant=0.430
+Krok  7000: [982,994] vzduch
+         Teplota: 298.1K | Návštev: 7
+         Energia: 7.3e-05 J | ε: 0.07
+         Entropia: S_info=0.545, S_therm=1.000, S_quant=0.453
+Krok  8000: [971,997] vzduch
+         Teplota: 297.1K | Návštev: 36
+         Energia: 7.7e-05 J | ε: 0.05
+         Entropia: S_info=0.534, S_therm=1.000, S_quant=0.460
+Krok  9000: [970,992] vzduch
+         Teplota: 301.2K | Návštev: 70
+         Energia: 8.4e-05 J | ε: 0.05
+         Entropia: S_info=0.533, S_therm=1.000, S_quant=0.484
+Krok 10000: [970,992] vzduch
+         Teplota: 307.8K | Návštev: 146
+         Energia: 8.5e-05 J | ε: 0.05
+         Entropia: S_info=0.514, S_therm=1.000, S_quant=0.484
+Krok 11000: [978,994] vzduch
+         Teplota: 308.5K | Návštev: 150
+         Energia: 8.5e-05 J | ε: 0.05
+         Entropia: S_info=0.501, S_therm=1.000, S_quant=0.484
+Krok 12000: [994,986] vzduch
+         Teplota: 293.6K | Návštev: 2
+         Energia: 9.0e-05 J | ε: 0.05
+         Entropia: S_info=0.496, S_therm=1.000, S_quant=0.495
+Krok 13000: [974,990] vzduch
+         Teplota: 300.7K | Návštev: 58
+         Energia: 9.4e-05 J | ε: 0.05
+         Entropia: S_info=0.498, S_therm=1.000, S_quant=0.507
+Krok 14000: [986,982] vzduch
+         Teplota: 295.6K | Návštev: 6
+         Energia: 1.0e-04 J | ε: 0.05
+         Entropia: S_info=0.505, S_therm=1.000, S_quant=0.528
+Krok 15000: [981,987] vzduch
+         Teplota: 296.2K | Návštev: 15
+         Energia: 1.0e-04 J | ε: 0.05
+         Entropia: S_info=0.506, S_therm=1.000, S_quant=0.532
+Krok 16000: [984,974] vzduch
+         Teplota: 294.6K | Návštev: 12
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.508, S_therm=1.000, S_quant=0.541
+Krok 17000: [999,977] vzduch
+         Teplota: 296.6K | Návštev: 28
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.505, S_therm=1.000, S_quant=0.542
+Krok 18000: [996,978] vzduch
+         Teplota: 300.2K | Návštev: 79
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.500, S_therm=1.000, S_quant=0.542
+Krok 19000: [991,979] vzduch
+         Teplota: 304.2K | Návštev: 114
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.494, S_therm=1.000, S_quant=0.541
+Krok 20000: [987,979] vzduch
+         Teplota: 300.8K | Návštev: 104
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.489, S_therm=1.000, S_quant=0.541
+Krok 21000: [989,967] sklo
+         Teplota: 293.8K | Návštev: 2
+         Energia: 1.1e-04 J | ε: 0.05
+         Entropia: S_info=0.490, S_therm=1.000, S_quant=0.549
+Krok 22000: [990,960] vzduch
+         Teplota: 295.2K | Návštev: 18
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.496, S_therm=1.000, S_quant=0.563
+Krok 23000: [985,975] vzduch
+         Teplota: 298.7K | Návštev: 59
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.495, S_therm=1.000, S_quant=0.563
+Krok 24000: [994,970] vzduch
+         Teplota: 298.0K | Návštev: 43
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.494, S_therm=1.000, S_quant=0.564
+Krok 25000: [998,960] vzduch
+         Teplota: 298.3K | Návštev: 49
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.493, S_therm=1.000, S_quant=0.564
+Krok 26000: [997,965] vzduch
+         Teplota: 296.6K | Návštev: 33
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.492, S_therm=1.000, S_quant=0.565
+Krok 27000: [998,968] vzduch
+         Teplota: 308.3K | Návštev: 154
+         Energia: 1.2e-04 J | ε: 0.05
+         Entropia: S_info=0.490, S_therm=1.000, S_quant=0.565
+Krok 28000: [991,965] vzduch
+         Teplota: 294.8K | Návštev: 19
+         Energia: 1.3e-04 J | ε: 0.05
+         Entropia: S_info=0.487, S_therm=1.000, S_quant=0.565
+Krok 29000: [990,970] vzduch
+         Teplota: 296.4K | Návštev: 34
+         Energia: 1.3e-04 J | ε: 0.05
+         Entropia: S_info=0.484, S_therm=1.000, S_quant=0.565
+Krok 30000: [984,974] vzduch
+         Teplota: 301.3K | Návštev: 130
+         Energia: 1.3e-04 J | ε: 0.05
+         Entropia: S_info=0.482, S_therm=1.000, S_quant=0.566
+
+══════════════════════════════════════════════════════════════
+              VÝSLEDKY KYBERNAUT-HUMAN v3.1
+══════════════════════════════════════════════════════════════
+
+FYZIKÁLNE METRIKY:
+  Kroky simulácie: 30000
+  Celková energia: 1.265e-04 J
+  Priemerná teplota: 290.9 K
+  Čas simulácie: 0.921 s
+
+ENTROPICKÁ ANALÝZA (normalizované 0-1):
+  Informačná entropia (S_info): 0.4822
+  Tepelná entropia (S_thermal): 1.0000
+  Kvantová entropia (S_quantum): 0.5656
+  Rozdiel S_thermal - S_info: 0.5178
+  Pomer S_thermal/S_info: 2.074
+
+INFORMAČNÉ METRIKY:
+  Pokrytie sveta: 3735/1000000 buniek (0.4%)
+  Efektivita informácie: 5.030e+07 bit/J
+  Rozhodnutí: 30000
+
+METRIKY UČENIA:
+  Entropia učenia: 1.023e-16 J/K
+  Účinnosť učenia: 4.095e-17 ΔS/J
+  Konečná miera explorácie: 0.05
+  Bar dosiahnutý v kroku: 5722
+
+══════════════════════════════════════════════════════════════
+              MATEMATICKÁ VALIDÁCIA
+══════════════════════════════════════════════════════════════
+✓ S_info v rozsahu 0-1: 0.4822
+✓ S_thermal v rozsahu 0-1: 1.0000
+✓ S_quantum v rozsahu 0-1: 0.5656
+
+✓ Všetky metriky matematicky korektné
+
+Výsledky uložené do: kybernaut_human_v3.1_log.txt
+
+══════════════════════════════════════════════════════════════
+  SIMULÁCIA UKONČENÁ - MATEMATICKY VALIDOVANÁ VERZIA
+══════════════════════════════════════════════════════════════
