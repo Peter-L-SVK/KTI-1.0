@@ -22,7 +22,10 @@ Model založený na adaptívnom učení, ktorý by mal reprezentovať inteligent
 ### 3. **Komparatívny skript (compare_models.sh)**
 Automatizovaný nástroj na spustenie oboch modelov a porovnanie ich výkonnosti. Skript extrahuje kľúčové metriky z výstupov oboch simulácií a poskytuje interpretáciu rozdielov vo výkone.
 
-### 4. **Makefile**
+### 4. **Pokročilý testovací skript (mega_test.sh)**
+Štatistický testovací rámec pre opakované spúšťanie simulácií na veľkom svete (1000×1000 buniek). Vykonáva 10 opakovaní pre každý model, analyzuje variabilitu výsledkov a generuje komplexný HTML report s grafickou vizualizáciou.
+
+### 5. **Makefile**
 Automatizačný nástroj pre kompiláciu, spúšťanie a správu projektu. Poskytuje jednotný rozhranie pre všetky bežné úlohy spojené s vývojom a testovaním.
 
 ## Kľúčové metriky a ich interpretácia
@@ -42,7 +45,8 @@ Automatizačný nástroj pre kompiláciu, spúšťanie a správu projektu. Posky
 ### Kompilácia a spustenie (manuálne)
 ```bash
 # Kompilácia Kybernaut-Light
-gcc -o kybernaut_light kybernaut_light.c -lm
+gcc -O3 -Wall -Wextra -o kybernaut_light kybernaut_light.c -lm
+gcc -O3 -Wall -Wextra -o kybernaut_human kybernaut_human.c -lm
 
 # Spustenie jednotlivých modelov
 ./kybernaut_light
@@ -51,6 +55,10 @@ gcc -o kybernaut_light kybernaut_light.c -lm
 # Spustenie komparatívnej analýzy
 chmod +x compare_models.sh
 ./compare_models.sh
+
+# Spustenie pokročilého štatistického testu
+chmod +x mega_test.sh
+./mega_test.sh
 ```
 
 ### Použitie Makefile (odporúčané)
@@ -59,6 +67,7 @@ chmod +x compare_models.sh
 make              # skompiluje Kybernaut-Light
 make help         # zobrazí kompletnú nápovedu
 make compare      # spustí komparatívnu analýzu
+make mega-test    # spustí pokročilý štatistický test
 make run-light    # spustí Kybernaut-Light
 make clean        # vyčistí projekt
 
@@ -79,6 +88,55 @@ make stats        # zobrazí štatistiky kódu
 ### Vstupné parametre
 Pri spustení Kybernaut-Light používateľ zadá rozmer štvorcovej mriežky (typicky 15-1000). Pre veľké rozmery (>1000) systém poskytuje upozornenie na nároky na pamäť a vyžaduje potvrdenie.
 
+## Pokročilé testovanie a štatistická analýza
+
+### Mega Test (mega_test.sh)
+Skript `mega_test.sh` vykonáva rozsiahlu štatistickú analýzu výkonnosti oboch modelov:
+
+#### Konfigurácia testu
+- **Rozmer sveta**: 1000×1000 buniek (1 000 000 buniek)
+- **Počet opakovaní**: 10 pre každý model
+- **Výstupný adresár**: `mega_test_results/`
+
+#### Funkcionalita
+1. **Automatizované opakovanie**: 10× spustenie každého modelu s rovnakými podmienkami
+2. **Extrakcia metrík**: Automatická extrakcia entropických metrík z logov
+3. **Štatistická analýza**: Výpočet priemeru, smerodajnej odchýlky a štatistickej významnosti
+4. **Percentuálne zlepšenie**: Kvantifikácia vplyvu adaptívneho učenia
+5. **Grafická vizualizácia**: Generovanie grafov pomocou gnuplot (ak je nainštalovaný)
+6. **HTML report**: Komplexný HTML report s výsledkami a závermi
+
+#### Spustenie a výstupy
+```bash
+# Spustenie mega testu
+./mega_test.sh
+
+# Alebo pomocou Makefile
+make mega-test
+```
+
+#### Výstupné súbory
+- **`mega_test_results/`**: Adresár so všetkými výsledkami
+  - `test_run_light_*.log`: Logy jednotlivých Light testov
+  - `test_run_human_*.log`: Logy jednotlivých Human testov
+  - `summary.csv`: Súhrnné údaje vo formáte CSV
+  - `report.html`: Komplexný HTML report s výsledkami
+  - `results_plot.png`: Grafické zobrazenie výsledkov (ak je gnuplot)
+  - `plot.gp`: Gnuplot skript pre generovanie grafov
+
+#### Štatistické metódy
+- **Priemer a smerodajná odchýlka**: Kvantifikácia variability výsledkov
+- **T-test**: Testovanie štatistickej významnosti rozdielov medzi modelmi
+- **Percentuálne zlepšenie**: Kvantifikácia efektu adaptívneho učenia
+- **Vizuálna analýza**: Grafy trendov a variabilít
+
+### Interpretácia výsledkov
+Mega test poskytuje robustné dôkazy o:
+1. **Konzistentnosti modelov**: Nízka variabilita medzi opakovaniami
+2. **Štatistickej významnosti**: Rozdiel medzi modelmi je reálny, nie náhodný
+3. **Efekte učenia**: Kvantifikácia toho, ako veľmi adaptívne učenie zlepšuje efektivitu
+4. **Škálovateľnosti**: Výkon na veľkých svetoch (1000×1000)
+
 ## Kompletná nápoveda Makefile
 
 ### Základné príkazy
@@ -88,6 +146,7 @@ Pri spustení Kybernaut-Light používateľ zadá rozmer štvorcovej mriežky (t
 - **`make all`** - Skompiluje všetko
 - **`make clean`** - Vymaže skompilované súbory a dočasné súbory
 - **`make compare`** - Spustí komparatívnu analýzu oboch modelov
+- **`make mega-test`** - Spustí pokročilý štatistický test
 - **`make run-light`** - Spustí Kybernaut-Light
 - **`make run-human`** - Spustí Kybernaut-Human
 - **`make test`** - Spustí základný test
@@ -115,8 +174,7 @@ make run-light
 # Kompletné testovanie
 make clean
 make release
-make test
-make benchmark
+make mega-test
 
 # Vývojový cyklus
 make debug        # pre ladenie
@@ -127,6 +185,10 @@ make clean && make release  # finálna verzia
 make profile
 ./kybernaut_light
 gprof ./kybernaut_light gmon.out > analysis.txt
+
+# Štatistická analýza
+make mega-test
+firefox mega_test_results/report.html
 ```
 
 ### Štruktúra výstupných súborov
@@ -136,6 +198,7 @@ gprof ./kybernaut_light gmon.out > analysis.txt
 - **`human_results.txt`** - Výsledky simulácie Human modelu
 - **`kybernaut_light_v3.1_log.txt`** - Podrobný log Light modelu
 - **`gmon.out`** - Profilovacie dáta (pri `make profile`)
+- **`mega_test_results/`** - Výsledky pokročilého štatistického testu
 
 ## Výstup a analýza
 
@@ -159,6 +222,14 @@ Skript `compare_models.sh` generuje štrukturované porovnanie oboch modelov s i
 - Ktorý model lepšie vyvažuje exploráciu a exploatáciu
 - Percentuálne zlepšenie vďaka adaptívnemu učeniu
 
+### Štatistický výstup
+Skript `mega_test.sh` generuje komplexnú štatistickú analýzu:
+- Priemery a variabilita výsledkov
+- Štatistická významnosť rozdielov
+- Percentuálne zlepšenie v dôsledku adaptívneho učenia
+- Grafické vizualizácie trendov
+- Profesionálny HTML report
+
 ## Teoretický základ
 
 ### Informačná entropia (S_info)
@@ -178,6 +249,7 @@ Tento projekt poskytuje rámec pre:
 3. **Optimalizáciu algoritmov** na základe entropických kritérií
 4. **Výučbu pokročilých konceptov** z fyziky, informatiky a systémovej teórie
 5. **Automatizáciu vývoja** pomocou Makefile
+6. **Štatistickú analýzu** výkonnosti pomocou robustných testovacích postupov
 
 ## Technické špecifikácie
 
@@ -186,6 +258,8 @@ Tento projekt poskytuje rámec pre:
 - Kompilátor GCC s podporou matematickej knižnice
 - 64-bitová architektúra pre veľké mriežky
 - Make utility (typicky GNU Make)
+- Nástroj `bc` pre výpočty s desatinnými číslami (pre mega test)
+- Gnuplot (voliteľné, pre grafickú vizualizáciu)
 
 ### Pamäťové nároky
 Pamäťová náročnosť rastie kvadraticky s rozmerom mriežky:
@@ -196,7 +270,8 @@ Pamäťová náročnosť rastie kvadraticky s rozmerom mriežky:
 ### Požiadavky na systém
 - GCC 4.8+ alebo Clang 3.5+
 - Matematická knižnica (libm)
-- Nástroj `bc` pre komparatívnu analýzu (voliteľné)
+- Nástroj `bc` pre komparatívnu analýzu a mega test
+- Gnuplot (voliteľné) pre grafickú vizualizáciu
 - Alespoň 100 MB voľného miesta na disku pre veľké simulácie
 
 ### Validácia a korektnosť
@@ -215,6 +290,7 @@ Plánované rozšírenia zahŕňajú:
 - Rozšírenie o viacrozmerné priestory a komplexnejšie prostredia
 - Integrácia s CI/CD systémami pomocou Makefile
 - Dockerizácia pre jednoduchšie nasadenie
+- Rozšírenie štatistických testov o viac faktoriálne analýzy
 
 ## Licencia a autorské práva
 
@@ -222,4 +298,4 @@ Plánované rozšírenia zahŕňajú:
 
 ---
 
-*Tento projekt predstavuje prienik viacerých disciplín: fyziky, informatiky, teórie systémov a umelnej inteligencie, čím poskytuje unikátny pohľad na fundamentálne limity a možnosti inteligentných systémov v interakcii s fyzikálnym svetom. Makefile pridáva profesionálnu vrstvu automatizácie, ktorá zjednodušuje vývojový proces a sprístupňuje projekt širšej komunite výskumníkov a študentov.*
+*Tento projekt predstavuje prienik viacerých disciplín: fyziky, informatiky, teórie systémov a umelnej inteligencie, čím poskytuje unikátny pohľad na fundamentálne limity a možnosti inteligentných systémov v interakcii s fyzikálnym svetom. Makefile a pokročilé testovacie skripty pridávajú profesionálnu vrstvu automatizácie, ktorá zjednodušuje vývojový proces a sprístupňuje projekt širšej komunite výskumníkov a študentov.*

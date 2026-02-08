@@ -11,6 +11,7 @@
 #   make all          - skompiluje všetko
 #   make clean        - vymaže skompilované súbory
 #   make compare      - spustí komparatívnu analýzu
+#   make mega-test    - spustí pokročilý štatistický test
 #   make run-light    - spustí Kybernaut-Light
 #   make run-human    - spustí Kybernaut-Human
 #   make test         - spustí základný test
@@ -29,6 +30,7 @@ LDFLAGS_HUMAN = -lm -lpthread
 TARGET_LIGHT = kybernaut_light
 TARGET_HUMAN = kybernaut_human
 COMPARE_SCRIPT = compare_models.sh
+MEGA_TEST_SCRIPT = mega_test.sh
 SOURCE_LIGHT = kybernaut_light.c
 SOURCE_HUMAN = kybernaut_human.c
 OBJECT_LIGHT = kybernaut_light.o
@@ -63,6 +65,7 @@ all: light human
 	@echo "  make run-light    - spustí Kybernaut-Light"
 	@echo "  make run-human    - spustí Kybernaut-Human"
 	@echo "  make compare      - spustí komparatívnu analýzu"
+	@echo "  make mega-test    - spustí pokročilý štatistický test"
 	@echo "  make clean        - vymaže skompilované súbory"
 	@echo "=========================================="
 
@@ -110,6 +113,35 @@ compare: light human
 	fi
 	@echo "Spúšťam komparáciu oboch modelov..."
 	@./$(COMPARE_SCRIPT)
+
+# Spustenie pokročilého štatistického testu
+.PHONY: mega-test
+mega-test: light human
+	@echo "=========================================="
+	@echo "  SPUSTENIE POKROČILÉHO ŠTATISTICKÉHO TESTU"
+	@echo "=========================================="
+	@echo "Mega test: 10× opakovanie na svete 1000×1000"
+	@echo "Tento test môže trvať dlhšie kvôli veľkému svetu"
+	@echo ""
+	@if [ ! -x "$(MEGA_TEST_SCRIPT)" ]; then \
+		chmod +x $(MEGA_TEST_SCRIPT); \
+		echo "Skript mega_test.sh bol spusteniteľný"; \
+	fi
+	@echo "Kontrola závislostí pre mega test..."
+	@if ! command -v bc > /dev/null 2>&1; then \
+		echo "VAROVANIE: Nástroj 'bc' nie je nainštalovaný"; \
+		echo "Mega test vyžaduje 'bc' pre štatistické výpočty"; \
+		echo "Nainštalujte: sudo apt-get install bc (Debian/Ubuntu)"; \
+		read -p "Pokračovať aj tak? (y/n): " -n 1 -r; \
+		echo; \
+		if [[ ! $$REPLY =~ ^[Yy] ]]; then \
+			echo "Test prerušený"; \
+			exit 1; \
+		fi; \
+	fi
+	@echo ""
+	@echo "Spúšťam mega test..."
+	@./$(MEGA_TEST_SCRIPT)
 
 # Spustenie Kybernaut-Light
 .PHONY: run-light
@@ -261,6 +293,7 @@ help:
 	@echo "  make both         - skompiluje oba modely"
 	@echo "  make clean        - vymaže skompilované súbory"
 	@echo "  make compare      - spustí komparatívnu analýzu"
+	@echo "  make mega-test    - spustí pokročilý štatistický test"
 	@echo "  make run-light    - spustí Kybernaut-Light"
 	@echo "  make run-human    - spustí Kybernaut-Human"
 	@echo "  make test         - spustí základný test"
@@ -274,6 +307,7 @@ help:
 	@echo "  kybernaut_light.c    - Fyzikálny model"
 	@echo "  kybernaut_human.c    - Model s učením"
 	@echo "  compare_models.sh    - Komparatívny skript"
+	@echo "  mega_test.sh         - Pokročilý štatistický test"
 	@echo "  Makefile            - Tento súbor"
 	@echo ""
 	@echo "Výstupné súbory:"
@@ -311,10 +345,23 @@ info:
 		echo "Kybernaut-Human: Chýba"; \
 	fi
 	@echo ""
+	@echo "Testovacie skripty:"
+	@if [ -f "$(COMPARE_SCRIPT)" ]; then \
+		echo "  compare_models.sh: Dostupné"; \
+	else \
+		echo "  compare_models.sh: Chýba"; \
+	fi
+	@if [ -f "$(MEGA_TEST_SCRIPT)" ]; then \
+		echo "  mega_test.sh: Dostupné"; \
+	else \
+		echo "  mega_test.sh: Chýba"; \
+	fi
+	@echo ""
 	@echo "Závislosti:"
 	@echo "  Kompilátor: $(CC)"
 	@echo "  Knižnice: matematická (-lm), pthread (-lpthread)"
 	@echo "  Shell: Bash"
+	@echo "  Mega test: bc (pre štatistické výpočty)"
 	@echo "=========================================="
 
 # Kontrola závislostí
@@ -327,7 +374,7 @@ check-deps:
 	@echo ""
 	@which $(CC) > /dev/null 2>&1 && echo "✓ Kompilátor: $(CC)" || echo "✗ Kompilátor: $(CC) nenájdený"
 	@which make > /dev/null 2>&1 && echo "✓ Make: dostupný" || echo "✗ Make: nedostupný"
-	@which bc > /dev/null 2>&1 && echo "✓ bc (kalkulačka): dostupná" || echo "✗ bc: nedostupná (potrebná pre komparáciu)"
+	@which bc > /dev/null 2>&1 && echo "✓ bc (kalkulačka): dostupná" || echo "✗ bc: nedostupná (potrebná pre komparáciu a mega test)"
 	@echo ""
 	@echo "Kontrola knižníc:"
 	@echo "#include <pthread.h>\nint main() { return 0; }" | $(CC) -x c - -lpthread -o /dev/null 2>&1 && echo "✓ pthread knižnica: dostupná" || echo "✗ pthread knižnica: nedostupná"
@@ -388,7 +435,7 @@ benchmark: all
 	@echo "50" | timeout 30 ./$(TARGET_LIGHT) > /dev/null 2>&1 && \
 	echo "✓ Test prebehol úspešne" || echo "✗ Test zlyhal alebo trval príliš dlho"
 	@if [ -f "$(LOG_LIGHT)" ]; then \
-		echo "  Výsledky: $$(grep "Pokrytie sveta" $(LOG_LIGHT) 2>/dev/null | head -1)"; \
+		echo "  Výsledky: $$(grep "Pokrytie svet" $(LOG_LIGHT) 2>/dev/null | head -1)"; \
 		rm -f $(LOG_LIGHT) 2>/dev/null; \
 	fi
 	@echo ""
@@ -396,7 +443,7 @@ benchmark: all
 	@echo "50" | timeout 30 ./$(TARGET_HUMAN) > /dev/null 2>&1 && \
 	echo "Test prebehol úspešne" || echo "✗ Test zlyhal alebo trval príliš dlho"
 	@if [ -f "$(LOG_HUMAN)" ]; then \
-		echo "Výsledky: $$(grep "Pokrytie sveta" $(LOG_HUMAN) 2>/dev/null | head -1)"; \
+		echo "Výsledky: $$(grep "Pokrytie svet" $(LOG_HUMAN) 2>/dev/null | head -1)"; \
 		rm -f $(LOG_HUMAN) 2>/dev/null; \
 	fi
 
