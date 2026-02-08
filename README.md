@@ -16,7 +16,7 @@ Fyzikálne korektný optický model simulujúci šírenie fotónu v heterogénno
 
 Model používa projekciu 3D optických javov do 2D priestoru s fyzikálne konzistentnými parametrami (mikrometerové bunky, femtosekundové časové kroky). Entropické metriky sú vypočítané z distribúcie fotónov a teplotného poľa, čo umožňuje kvantifikovať efektivitu premeny informácie na usporiadanú činnosť.
 
-### 2. **Kybernaut-Human (predpokladaná existencia)**
+### 2. **Kybernaut-Human (kybernaut_human.c)**
 Model založený na adaptívnom učení, ktorý by mal reprezentovať inteligentný systém schopný optimalizovať svoju trajektóriu na základe minulých skúseností. Tento model by mal využívať algoritmy strojového učenia na minimalizáciu entropickej neefektivity pri pohybe smerom k cieľu.
 
 ### 3. **Komparatívny skript (compare_models.sh)**
